@@ -6,11 +6,8 @@ const PHOTO_DIR = process.env.PHOTO_DIR || '/mnt/volume-nyc1-02/sitephotos'
 
 app.get('/photos/featured/:featureNumber', (req, res) => {
     const featureNumber = req.params.featureNumber
-    res.send(`
-            <h1>Photo API</h1>
-            <p>You were looking for featured photo ${featureNumber}</p>
-    `)
-    // TODO: return the feature photo
+    const photoPath = path.resolve(__dirname, PHOTO_DIR + "/featured/" + featureNumber + ".jpg")
+    res.sendFile(photoPath)
 })
 
 app.get('/photos/:requestedPhoto', (req, res) => {
