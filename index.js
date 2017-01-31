@@ -15,7 +15,7 @@ app.get('/photos/featured/:featureNumber', (req, res) => {
 
 app.get('/photos/:requestedPhoto', (req, res) => {
     const requestedPhoto = req.params.requestedPhoto
-    const photoPath = path.resolve(__dirname, PHOTO_DIR + "/" + requestedPhoto)
+    const photoPath = path.resolve(__dirname, PHOTO_DIR + "/photos/" + requestedPhoto)
     console.log("Sending file " + photoPath)
     res.sendFile(photoPath)
 })
